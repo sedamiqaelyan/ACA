@@ -20,37 +20,46 @@
         height: 50px;
         width: 50px;
     }
+
+    .calendar {
+        width: 350px;
+    }
+
+    .full-width {
+        width: 350px!important;
+    }
 </style>
 <body>
-<div class="container" style="width: 350px;">
+<div class="container">
     <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-            <?php
-                $daysInMonth = [];
-                for ($i=0;$i<12;$i++) {
-                    $daysInMonth[] = cal_days_in_month(CAL_GREGORIAN, $i + 1, 2016);
-                }
-                for($i=0;$i<count($daysInMonth);++$i) {
-                    echo '<div class="border">Mon</div>';
-                    echo '<div class="border">Thus</div>';
-                    echo '<div class="border">Wend</div>';
-                    echo '<div class="border">Trs</div>';
-                    echo '<div class="border">Fri</div>';
-                    echo '<div class="border">Sut</div>';
-                    echo '<div class="border">Sun</div>';
+        <div class="col-xs-12 text-center">
+            <div class="calendar">
+                <?php
+                    $daysInMonth = [];
+                    for ($i=0;$i<12;$i++) {
+                        $daysInMonth[] = cal_days_in_month(CAL_GREGORIAN, $i + 1, 2016);
+                    }
+                    for($i=0;$i<count($daysInMonth);++$i) {
+                        echo '<div class="border">Mon</div>';
+                        echo '<div class="border">Thus</div>';
+                        echo '<div class="border">Wend</div>';
+                        echo '<div class="border">Trs</div>';
+                        echo '<div class="border">Fri</div>';
+                        echo '<div class="border">Sut</div>';
+                        echo '<div class="border">Sun</div>';
 
-                    $firstDay = date('w', strtotime('1-'.($i+1).'-2016'));
-                    for($j=1;$j<$firstDay;++$j) {
-                        echo '<div class="border"></div>';
+                        $firstDay = date('w', strtotime('1-'.($i+1).'-2016'));
+                        for($j=1;$j<$firstDay;++$j) {
+                            echo '<div class="border"></div>';
+                        }
+                        for ($k = 1; $k <= $daysInMonth[$i]; ++$k) {
+                            echo '<div class="border">' . $k . '</div>';
+                        }
+                        echo  '<div class="border full-width"></div>';
                     }
-                    for ($k = 1; $k <= $daysInMonth[$i]; ++$k) {
-                        echo '<div class="border">' . $k . '</div>';
-                    }
-                }
-            ?>
+                ?>
+            </div>
         </div>
-        <div class="col-sm-4"></div>
     </div>
 </div>
 
