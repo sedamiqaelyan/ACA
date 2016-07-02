@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - aca@localhost" uuid="7795e076-9cb5-4ea1-9aae-f77a8e2cdc04">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>aca.*</schema-pattern>
+      <default-schemas>aca.*</default-schemas>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d0501546-e3f2-460e-9b1a-a5e763050852" name=" https://github.com/sedamiqaelyan/ACA-Homework-14.git" url=" https://github.com/sedamiqaelyan/ACA-Homework-14.git">
+        <fileTransfer host="" port="21" username="sedamiqaelyan">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
