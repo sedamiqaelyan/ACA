@@ -83,7 +83,7 @@
                             if ($i == $currentPage) {
                                 $style = "background-color: #b3ffe6;";
                             }
-                            echo '<li><a href="http://localhost/Exam/courses.php?page=' . $i . '" style="' . $style . '">' . $i . '</a></li>';
+                            echo '<li><a href="http://localhost/Exam/functions.php?page=' . $i . '" style="' . $style . '">' . $i . '</a></li>';
                         }
                         ?>
 
