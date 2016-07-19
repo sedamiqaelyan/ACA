@@ -8,7 +8,7 @@ $sql="SELECT
 `news`.`date` as date,
 `category`.`title` as news_category
 FROM
-`news` INNER JOIN `category` ON `news`.categori_id=`category`.`id` WHERE `category`.`title`='Sport'";
+`news` INNER JOIN `category` ON `news`.categori_id=`category`.`id` WHERE `category`.`title`='Google'";
 $result = mysqli_query($dbConnection, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -23,15 +23,15 @@ if (mysqli_num_rows($result) > 0) {
             <div class="media" style="padding-top: 50px;">
                 <div class="media-left media-middle">
                     <a href="#">
-                        <img class="media-object" src="images/u7leW43eYYo.jpg"style="height: 100px;">
+                        <img class="media-object" src="images/images.jpg"style="height: 100px;">
                     </a>
                 </div>
                 <div class="media-body">
                     <?php
                     foreach ($news as $key=>$value) {
-                            echo '<h4 class="media-heading" style="color: darkblue;">'.$value['news_title'].'</h4>'.PHP_EOL;
-                            echo $value['news_content'].PHP_EOL;
-                            echo $value['date'].PHP_EOL;
+                        echo '<h4 class="media-heading" style="color: darkblue;">'.$value['news_title'].'</h4>'.PHP_EOL;
+                        echo $value['news_content'].PHP_EOL;
+                        echo $value['date'].PHP_EOL;
                     }
                     ?>
                 </div>
