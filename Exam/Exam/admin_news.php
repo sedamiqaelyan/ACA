@@ -129,7 +129,7 @@
                                 if (mysqli_query($dbConnection, $sql)) {
                                     echo "New record created successfully";
                                     //Refreshing the page
-                                    header("Refresh:1; url=index_lecturar.php");
+                                    header("Refresh:1; url=admin_news.php");
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($dbConnection);
                                 }
