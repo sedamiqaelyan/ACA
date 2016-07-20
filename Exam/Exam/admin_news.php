@@ -55,7 +55,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Course</h4>
+                            <h4 class="modal-title">News</h4>
                         </div>
                         <form enctype="multipart/form-data" method="post">
                             <div class="input-group">
@@ -75,7 +75,6 @@
             require_once 'database.php';
             global $dbConnection;
             $news=[];
-
             $sql="SELECT
                     `news`.`id` as Id,
                     `news`.`title` as news_title,
@@ -95,9 +94,6 @@
 
 
             if(isset($_POST['submit'])) {
-                //if (isset($newLecturer)) {
-
-
                 $title = $_POST['title'];
                 $content = $_POST['content'];
                 $catId = $_POST['categori_id'];
@@ -129,7 +125,7 @@
                                 if (mysqli_query($dbConnection, $sql)) {
                                     echo "New record created successfully";
                                     //Refreshing the page
-                                    header("Refresh:1; url=admin_news.php");
+                                    header("Refresh:0; url=admin_news.php");
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($dbConnection);
                                 }
@@ -139,8 +135,6 @@
                     }
                 }
             }
-
-
 
             ?>
 
