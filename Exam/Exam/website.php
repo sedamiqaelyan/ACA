@@ -7,6 +7,14 @@
 </style>
         <?php
         require_once 'navigation.php';
+        define("ITEMS_PER_PAGE", 2);
+        $currentPage = 1;
+        if (isset($_GET['page'])) {
+            $currentPage = $_GET['page'];
+        }
+        $start = ($currentPage - 1) * ITEMS_PER_PAGE;
+        $limit = ITEMS_PER_PAGE;
+
         $sql="SELECT  
             `news`.`title` as news_title,
             `news`.`content` as news_content,
@@ -14,7 +22,7 @@
             `category`.`title` as news_category,
             `news`.`news_image_name` as `news_image`
             FROM
-            `news` INNER JOIN `category`  ON `news`.categori_id=`category`.`id` ";
+            `news`  INNER JOIN `category`  ON `news`.categori_id=`category`.`id` limit $start,$limit";
         $result = mysqli_query($dbConnection, $sql);
         if (mysqli_num_rows($result) > 0) {
             // output data of each row
@@ -22,6 +30,7 @@
                 $news[] = $row;
             }
         }
+
         ?>
         <div class="media "style="padding-top: 50px;">
             <div class="media-left media-middle">
@@ -45,23 +54,14 @@
             ?>
             </div>
         </div>
-    <?php
-            define("ITEMS_PER_PAGE", 2);
-            $currentPage = 1;
-            if (isset($_GET['page'])) {
-                $currentPage = $_GET['page'];
-            }
 
-            $totalPageCount = ceil(count($news) / ITEMS_PER_PAGE);
-            $start = ($currentPage - 1) * ITEMS_PER_PAGE;
-            $limit = ITEMS_PER_PAGE;
-            if ($start + $limit > count($news)) {
-                $limit = count($news) - $start;
-            }
-    ?>
         <nav style="margin-left: 550px;">
             <ul class="pagination">
                 <?php
+                $sql="Select * from news";
+                $result=mysqli_query($dbConnection,$sql);
+                $total_records = mysqli_num_rows($result);
+                $totalPageCount = ceil($total_records / ITEMS_PER_PAGE);
                 for ($i = 1; $i <= $totalPageCount; $i++) {
                     $style = '';
                     if ($i == $currentPage) {
