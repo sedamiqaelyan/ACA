@@ -27,7 +27,6 @@
     }
 </style>
 <body>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2" style="padding-right: 0px;padding-left: 0px;">
@@ -73,39 +72,31 @@
                     $cats[] = $row;
                 }
             }
-
             foreach ($cats[0] as $key => $value) {
                 if (isset($_GET[$key])) {
                     $newCats[$key] = $_GET[$key];
                 }
             }
             if(isset($newCats)) {
-//
+
                 global $dbConnection;
                 $title=$newCats['title'];
-
 
                 $sql = "INSERT INTO category(title) VALUES ('" . $title. "')";
                 $result=mysqli_query($dbConnection,$sql);
                 header("Refresh:0; url=admin_categories.php");
             }
-
             ?>
-
             <table class="table table-bordered">
                 <thead>
                 <tr>
                     <th>Id</th>
                     <th>Category</th>
                     <th>Action</th>
-
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-
-
-
                 foreach ($cats as $key=>$value) {
                     echo '<tr>';
                     foreach ($value as $rowKey => $rowValue){
@@ -123,14 +114,9 @@
                 }
                 ?>
                 </tbody>
-
         </div>
-
     </div>
 </div>
-
-
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

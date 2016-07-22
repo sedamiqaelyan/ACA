@@ -1,4 +1,3 @@
-
 <?php
 require_once 'database.php';
 $sql="Select title from category";
@@ -9,8 +8,6 @@ if (mysqli_num_rows($result) > 0) {
         $categoris_title[] = $row;
     }
 }
-var_dump($categoris_title);
-
 ?>
 <html lang="en">
 <head>
@@ -35,8 +32,6 @@ var_dump($categoris_title);
     <![endif]-->
 </head>
 <body>
-
-
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -52,7 +47,6 @@ var_dump($categoris_title);
                         </button>
                         <a class="navbar-brand" href="http://localhost/ACA/Exam/Exam/website.php">News</a>
                     </div>
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <form class="navbar-form navbar-left" role="search">

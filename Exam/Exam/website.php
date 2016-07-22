@@ -30,7 +30,6 @@
                 $news[] = $row;
             }
         }
-
         ?>
         <div class="media "style="padding-top: 50px;">
             <div class="media-left media-middle">
@@ -54,7 +53,6 @@
             ?>
             </div>
         </div>
-
         <nav style="margin-left: 550px;">
             <ul class="pagination">
                 <?php

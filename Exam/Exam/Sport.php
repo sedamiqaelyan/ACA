@@ -9,7 +9,6 @@ if (isset($_GET['page'])) {
 }
 $start = ($currentPage - 1) * ITEMS_PER_PAGE;
 $limit = ITEMS_PER_PAGE;
-
 $sql="SELECT
 `news`.`title` as news_title,
 `news`.`content` as news_content,
@@ -67,8 +66,6 @@ if (mysqli_num_rows($result) > 0) {
 
     </ul>
 </nav>
-
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

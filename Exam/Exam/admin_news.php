@@ -70,7 +70,6 @@
 
                 </div>
             </div>
-
             <?php
             require_once 'database.php';
             global $dbConnection;
@@ -91,8 +90,6 @@
                     $news[] = $row;
                 }
             }
-
-
             if(isset($_POST['submit'])) {
                 $title = $_POST['title'];
                 $content = $_POST['content'];
@@ -135,9 +132,7 @@
                     }
                 }
             }
-
             ?>
-
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -152,7 +147,6 @@
                 </thead>
                 <tbody>
                 <?php
-
                 foreach ($news as $key => $value) {
                     echo '<tr>';
 
@@ -179,16 +173,11 @@
 
                 }
                 ?>
-
                 </tbody>
-
+            </table>
         </div>
-
     </div>
 </div>
-
-
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
