@@ -4,6 +4,9 @@
         height: 100px;
         width: 100px;
     }
+    a:visited {
+        color: white;
+    }
 </style>
         <?php
         require_once 'navigation.php';
@@ -14,7 +17,6 @@
         }
         $start = ($currentPage - 1) * ITEMS_PER_PAGE;
         $limit = ITEMS_PER_PAGE;
-
         $sql="SELECT  
             `news`.`title` as news_title,
             `news`.`content` as news_content,

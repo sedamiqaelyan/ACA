@@ -1,3 +1,4 @@
+
 <?php
 require_once 'database.php';
 $sql="Select title from category";
@@ -8,6 +9,10 @@ if (mysqli_num_rows($result) > 0) {
         $categoris_title[] = $row;
     }
 }
+var_dump($categoris_title);
+require_once 'HtmlList.php';
+require_once 'ListItem.php';
+
 ?>
 <html lang="en">
 <head>
@@ -32,6 +37,8 @@ if (mysqli_num_rows($result) > 0) {
     <![endif]-->
 </head>
 <body>
+
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -47,6 +54,7 @@ if (mysqli_num_rows($result) > 0) {
                         </button>
                         <a class="navbar-brand" href="http://localhost/ACA/Exam/Exam/website.php">News</a>
                     </div>
+
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <form class="navbar-form navbar-left" role="search">
@@ -55,15 +63,18 @@ if (mysqli_num_rows($result) > 0) {
                                 <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                             </div>
                         </form>
-                        <ul class="nav navbar-nav navbar-right">
                             <?php
+                            $htmllist=new HTMLList();
+                            $htmllist->draw();
                             foreach ($categoris_title as $key=>$value) {
                                 foreach ($value as $rowkey=>$rowvalue) {
-                                    echo '<li>'.'<a href="http://localhost/ACA/Exam/Exam/'.$rowvalue.'.php">'. $rowvalue .'</li>';
+                                    $listitem=new  ListItem();
+                                    $listitem->setContent($rowvalue);
+                                    $htmllist->addItem($listitem);
                                 }
                             }
+                            $htmllist->draw();
                             ?>
-                        </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
